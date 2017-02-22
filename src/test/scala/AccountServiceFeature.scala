@@ -7,12 +7,15 @@ import org.scalatest.FlatSpec
 class AccountServiceFeature extends FlatSpec with MockFactory  {
 
   "an account" must "print transactions in chronological reverse order" in {
-    val accountService = new AccountService()
+    val accountRepository = new AccountRepository()
+    val clock = new Clock()
+    val accountService = new AccountService(accountRepository = accountRepository, clock = clock)
     val console = mock[Console]
 
     accountService.deposit(1000)
     accountService.withdraw(100)
     accountService.deposit(500)
+    accountService.printStatement()
 
     (console.printLine _) expects ("DATE | AMOUNT | BALANCE")
     (console.printLine _) expects ("10/04/2014 | 500.00 | 1400.00")
