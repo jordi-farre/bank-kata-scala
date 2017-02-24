@@ -1,10 +1,11 @@
-import org.scalamock.scalatest.MockFactory
+import org.mockito.{InOrder, Mockito}
 import org.scalatest.FlatSpec
+import org.scalatest.mock.MockitoSugar
 
 /**
   * Created by jordifr on 21/2/17.
   */
-class AccountServiceFeature extends FlatSpec with MockFactory  {
+class AccountServiceFeature extends FlatSpec with MockitoSugar  {
 
   "an account" must "print transactions in chronological reverse order" in {
     val accountRepository = new AccountRepository()
@@ -18,10 +19,11 @@ class AccountServiceFeature extends FlatSpec with MockFactory  {
     accountService.deposit(500)
     accountService.printStatement()
 
-    (console.printLine _) expects ("DATE | AMOUNT | BALANCE")
-    (console.printLine _) expects ("10/04/2014 | 500.00 | 1400.00")
-    (console.printLine _) expects ("02/04/2014 | -100.00 | 900.00")
-    (console.printLine _) expects ("01/04/2014 | 1000.00 | 1000.00")
+    val inOrder: InOrder = Mockito.inOrder(console)
+    inOrder.verify(console).printLine("DATE | AMOUNT | BALANCE")
+    inOrder.verify(console).printLine("10/04/2014 | 500.00 | 1400.00")
+    inOrder.verify(console).printLine("02/04/2014 | -100.00 | 900.00")
+    inOrder.verify(console).printLine("01/04/2014 | 1000.00 | 1000.00")
 
   }
 
