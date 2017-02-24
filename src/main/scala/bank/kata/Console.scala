@@ -6,7 +6,7 @@ package bank.kata
 class Console {
 
   def printLine(line: String) {
-    throw new UnsupportedOperationException();
+    println(line)
   }
 
 }
