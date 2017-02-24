@@ -1,16 +1,23 @@
+package bank.kata
+
 import org.mockito.Mockito._
 import org.mockito.{InOrder, Mockito}
-import org.scalatest.FlatSpec
 import org.scalatest.mockito.MockitoSugar
+import org.scalatest.{BeforeAndAfter, FlatSpec}
 
 /**
   * Created by jordifr on 24/2/17.
   */
-class StatementPrinterShould extends FlatSpec with MockitoSugar {
+class StatementPrinterShould extends FlatSpec with MockitoSugar with BeforeAndAfter {
 
-  val console = mock[Console]
+  var console = mock[Console]
 
-  val statementPrinter = new StatementPrinter(console)
+  var statementPrinter = new StatementPrinter(console)
+
+  before {
+    console = mock[Console]
+    statementPrinter = new StatementPrinter(console)
+  }
 
   "an empty list of transactions" should "print only header" in {
     statementPrinter.print(List())

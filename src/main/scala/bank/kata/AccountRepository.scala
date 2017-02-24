@@ -1,3 +1,5 @@
+package bank.kata
+
 import scala.collection.mutable.ListBuffer
 
 /**

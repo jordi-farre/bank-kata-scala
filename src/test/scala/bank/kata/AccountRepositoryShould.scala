@@ -1,4 +1,5 @@
-import org.scalamock.scalatest.MockFactory
+package bank.kata
+
 import org.scalatest.FlatSpec
 
 /**

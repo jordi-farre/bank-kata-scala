@@ -1,3 +1,5 @@
+package bank.kata
+
 import org.mockito.{InOrder, Mockito}
 import org.scalatest.FlatSpec
 import org.scalatest.mockito.MockitoSugar

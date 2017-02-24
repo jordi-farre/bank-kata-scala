@@ -1,4 +1,4 @@
-import java.text.SimpleDateFormat
+package bank.kata
 
 /**
   * Created by jordifr on 21/2/17.

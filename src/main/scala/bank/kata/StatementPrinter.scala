@@ -1,3 +1,5 @@
+package bank.kata
+
 import java.text.{DecimalFormat, DecimalFormatSymbols}
 import java.util.concurrent.atomic.AtomicInteger
 

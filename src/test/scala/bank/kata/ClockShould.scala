@@ -1,6 +1,7 @@
+package bank.kata
+
 import java.time.LocalDate
 
-import org.scalamock.scalatest.MockFactory
 import org.scalatest.FlatSpec
 
 /**
