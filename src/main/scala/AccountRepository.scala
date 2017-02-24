@@ -9,6 +9,6 @@ class AccountRepository {
 
   def getTransactions = transactions.toList
 
-  def save(transaction: Transaction) = transactions += transaction
+  def save(transaction: Transaction): Unit = transactions += transaction
 
 }
