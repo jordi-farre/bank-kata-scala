@@ -6,7 +6,7 @@ import org.scalatest.FlatSpec
 /**
   * Created by jordifr on 22/2/17.
   */
-class ClockShould extends FlatSpec with MockFactory {
+class ClockShould extends FlatSpec {
 
   val DATE = "27/10/2016"
 

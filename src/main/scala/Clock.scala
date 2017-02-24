@@ -6,8 +6,8 @@ import java.time.format.DateTimeFormatter
   */
 class Clock {
 
-  def today() = this.getLocalDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
+  def today(): String = this.getLocalDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
 
-  def getLocalDate() = LocalDate.now()
+  def getLocalDate(): LocalDate = LocalDate.now()
 
 }
