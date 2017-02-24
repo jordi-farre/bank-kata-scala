@@ -1,8 +1,6 @@
-import org.mockito.Mockito
 import org.mockito.Mockito._
-import org.scalamock.scalatest.MockFactory
-import org.scalatest.{BeforeAndAfter, FlatSpec}
 import org.scalatest.mockito.MockitoSugar
+import org.scalatest.{BeforeAndAfter, FlatSpec}
 
 /**
   * Created by jordifr on 21/2/17.

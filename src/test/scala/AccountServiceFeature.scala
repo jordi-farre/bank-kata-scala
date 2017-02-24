@@ -1,6 +1,6 @@
 import org.mockito.{InOrder, Mockito}
 import org.scalatest.FlatSpec
-import org.scalatest.mock.MockitoSugar
+import org.scalatest.mockito.MockitoSugar
 
 /**
   * Created by jordifr on 21/2/17.
@@ -9,10 +9,12 @@ class AccountServiceFeature extends FlatSpec with MockitoSugar  {
 
   "an account" must "print transactions in chronological reverse order" in {
     val accountRepository = new AccountRepository()
-    val clock = new Clock()
-    val statementPrinter = new StatementPrinter()
-    val accountService = new AccountService(accountRepository = accountRepository, clock = clock, statementPrinter = statementPrinter)
+    val clock = mock[Clock]
     val console = mock[Console]
+    val statementPrinter = new StatementPrinter(console)
+    val accountService = new AccountService(accountRepository = accountRepository, clock = clock, statementPrinter = statementPrinter)
+
+    Mockito.when(clock.today()).thenReturn("01/04/2014", "02/04/2014", "10/04/2014")
 
     accountService.deposit(1000)
     accountService.withdraw(100)
