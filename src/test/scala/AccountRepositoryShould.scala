@@ -4,7 +4,7 @@ import org.scalatest.FlatSpec
 /**
   * Created by jordifr on 22/2/17.
   */
-class AccountRepositoryShould extends FlatSpec with MockFactory {
+class AccountRepositoryShould extends FlatSpec {
 
   val TRANSACTION = Transaction(date = "22/10/2016", amount = 100)
 
