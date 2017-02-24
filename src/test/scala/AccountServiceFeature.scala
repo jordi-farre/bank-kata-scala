@@ -9,7 +9,8 @@ class AccountServiceFeature extends FlatSpec with MockFactory  {
   "an account" must "print transactions in chronological reverse order" in {
     val accountRepository = new AccountRepository()
     val clock = new Clock()
-    val accountService = new AccountService(accountRepository = accountRepository, clock = clock)
+    val statementPrinter = new StatementPrinter()
+    val accountService = new AccountService(accountRepository = accountRepository, clock = clock, statementPrinter = statementPrinter)
     val console = mock[Console]
 
     accountService.deposit(1000)
