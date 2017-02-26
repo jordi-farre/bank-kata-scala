@@ -9,12 +9,16 @@ import java.util.concurrent.atomic.AtomicInteger
 class StatementPrinter(console: Console) {
 
   def print(transactions: List[Transaction]): Unit = {
-    console.printLine("DATE | AMOUNT | BALANCE")
-    val sum = new AtomicInteger(0)
+    printHeader
+    val sum = new AtomicInteger()
     transactions.map(t => {
       val total = sum.addAndGet(t.amount)
       s"${t.date} | ${formatAmount(t.amount)} | ${formatAmount(total)}"
     }).reverse.foreach(console.printLine)
+  }
+
+  private def printHeader = {
+    console.printLine("DATE | AMOUNT | BALANCE")
   }
 
   def formatAmount(amount: Int): String = {
